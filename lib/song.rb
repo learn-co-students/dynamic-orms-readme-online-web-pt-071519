@@ -7,7 +7,8 @@ class Song
   def self.table_name
     self.to_s.downcase.pluralize
   end
-
+  
+  
   def self.column_names
     DB[:conn].results_as_hash = true
 
@@ -57,7 +58,6 @@ class Song
     sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
     DB[:conn].execute(sql)
   end
-
 end
 
 
