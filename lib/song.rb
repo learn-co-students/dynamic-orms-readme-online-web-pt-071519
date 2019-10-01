@@ -16,12 +16,14 @@ class Song
 
     table_info = DB[:conn].execute(sql)
     column_names = []
-    table_info.each do |row|
-      binding.pry
+    table_info.each do |row|      #iterate of the results as hashes
       
-      column_names << row["name"]
+      column_names << row["name"] # uses the brackets system to 
+                                  # extract the column name from the array of hashes.
+
     end
-    column_names.compact
+    column_names.compact          # compact returns a copy of itself inplace with all nil valuse removed
+    # binding.pry
   end
 
   self.column_names.each do |col_name|
